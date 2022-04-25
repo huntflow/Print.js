@@ -11,7 +11,7 @@ const Print = {
 
     // Wait for iframe to load all content
     iframeElement.onload = () => {
-      if (params.type === 'pdf') {
+      if (Browser.isFirefox() || Browser.isSafari()) {
         // Add a delay for Firefox. In my tests, 1000ms was sufficient but 100ms was not
         if (Browser.isFirefox()) {
           setTimeout(() => performPrint(iframeElement, params), 1000)
